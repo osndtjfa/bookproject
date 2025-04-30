@@ -132,6 +132,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 #add
 MEDIA_URL = '/media/'  #好きな名前を変更できる　Ex、image
 MEDIA_ROOT = BASE_DIR / 'media'  #物理パース
